@@ -1,0 +1,18 @@
+backend:
+  name: github
+  repo: iMioiMio/mioimio.github.io  # 替换成你的仓库名
+  branch: main                       # 主分支
+
+media_folder: "assets/images"       # 上传图片存放位置
+public_folder: "/assets/images"     # 网站访问图片的路径
+
+collections:
+  - name: "posts"
+    label: "文章"
+    folder: "_posts"                 # Markdown 存放位置
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "标题", name: "title", widget: "string"}
+      - {label: "日期", name: "date", widget: "datetime"}
+      - {label: "正文", name: "body", widget: "markdown"}
