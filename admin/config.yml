@@ -16,3 +16,12 @@ collections:
       - {label: "标题", name: "title", widget: "string"}
       - {label: "日期", name: "date", widget: "datetime"}
       - {label: "正文", name: "body", widget: "markdown"}
+publish_mode: editorial_workflow
+
+backend:
+  name: github
+  repo: Mio01235/mioimio.github.io
+  branch: main
+  auth_scope: "public_repo"
+  base_url: https://imioimio.github.io/admin/
+  auth_endpoint: https://github.com/login/oauth/authorize?client_id=Ov23lib75keNWxW3GFfV
