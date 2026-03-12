@@ -1,27 +1,28 @@
 backend:
   name: github
-  repo: iMioiMio/mioimio.github.io  # 替换成你的仓库名
-  branch: main                       # 主分支
+  repo: iMioiMio/iMioiMio.github.io  # 仓库名，大小写完全一致
+  branch: master                         # 默认分支，如果你的仓库是 master，请改成 master
+  auth_scope: repo                     # 允许访问仓库
 
-media_folder: "assets/images"       # 上传图片存放位置
-public_folder: "/assets/images"     # 网站访问图片的路径
+media_folder: "assets/images"         # 上传图片存放位置
+public_folder: "/assets/images"
 
 collections:
-  - name: "posts"
-    label: "文章"
-    folder: "_posts"                 # Markdown 存放位置
+  - name: "pages"
+    label: "Pages"
+    folder: "_pages"                   # 仓库里实际存放页面的文件夹
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"                   # 自动生成 URL
     fields:
-      - {label: "标题", name: "title", widget: "string"}
-      - {label: "日期", name: "date", widget: "datetime"}
-      - {label: "正文", name: "body", widget: "markdown"}
-publish_mode: editorial_workflow
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
 
-backend:
-  name: github
-  repo: Mio01235/mioimio.github.io
-  branch: main
-  auth_scope: "public_repo"
-  base_url: https://imioimio.github.io/admin/
-  auth_endpoint: https://github.com/login/oauth/authorize?client_id=Ov23lib75keNWxW3GFfV
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"                   # 文章存放文件夹
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" 
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
